@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center; // Центрує контент
+  margin: 20px 0; // Відступи з верхньої та нижньої сторін
+
+  .button {
+    background-color: #007bff; // Основний колір кнопки
+    color: white; // Колір тексту
+    border: none; // Без обрамлення
+    border-radius: 5px; // Закруглені кути
+    padding: 10px 15px; // Внутрішні відступи
+    margin: 0 5px; // Відступи між кнопками
+    cursor: pointer; // Курсор при наведенні
+    transition: background-color 0.3s; // Плавний перехід кольору фону
+
+    &:hover {
+      background-color: #0056b3; // Темніший відтінок при наведенні
+    }
+
+    &:disabled {
+      background-color: #ccc; // Світліший колір для неактивної кнопки
+      cursor: not-allowed; // Курсор для неактивної кнопки
+    }
+  }
+
+  span {
+    margin: 0 10px; // Відступи зліва та справа
+    font-size: 1rem; // Розмір шрифту
+    color: #333; // Колір тексту
+  }
+}

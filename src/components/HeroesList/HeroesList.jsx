@@ -3,6 +3,7 @@ import { deleteHero, fetchAllSuperHeroes } from "../../api/superheroes.api";
 import { HeroesItemList } from "./HeroesItemList/HeroesItemList";
 import styles from "./HeroesItemList/heroes-item-list.module.scss";
 import { Pagination } from "../Pagination/Pagination";
+import { Loader } from "../UI/Loader/Loader";
 
 const LIMIT = 5;
 
@@ -63,7 +64,7 @@ const HeroesList = () => {
   return (
     <div className={styles.wrapper}>
       {isLoading ? (
-        <p className={styles.loader}>Loading...</p>
+        <Loader />
       ) : (
         <ul className={styles.list}>
           {currentHeroes.map((hero) => (

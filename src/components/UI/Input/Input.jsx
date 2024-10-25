@@ -1,7 +1,8 @@
 import React from "react";
 import { useController } from "react-hook-form";
+import styles from "./input.module.scss";
 
-const CustomInput = ({ name, control, ...props }) => {
+const useCustomController = ({ name, control }) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { error },
@@ -9,26 +10,35 @@ const CustomInput = ({ name, control, ...props }) => {
     name,
     control,
   });
+  return { onChange, onBlur, value, ref, error };
+};
+
+const ErrorMessage = ({ error }) =>
+  error && <span style={{ color: "red" }}>{error.message}</span>;
+
+const CustomInput = ({ name, control, ...props }) => {
+  const { onChange, onBlur, value, ref, error } = useCustomController({
+    name,
+    control,
+  });
 
   return (
-    <div>
+    <div className={styles.inputContainer}>
       <input
+        id={name}
         {...props}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
         ref={ref}
       />
-      {error && <span style={{ color: "red" }}>{error.message}</span>}
+      <ErrorMessage error={error} />
     </div>
   );
 };
 
 const CustomFileInput = ({ name, control }) => {
-  const {
-    field: { onChange, onBlur, ref },
-    fieldState: { error },
-  } = useController({
+  const { onChange, onBlur, ref, error } = useCustomController({
     name,
     control,
   });
@@ -39,7 +49,7 @@ const CustomFileInput = ({ name, control }) => {
   };
 
   return (
-    <div>
+    <div className={styles.uploadContainer}>
       <input
         type="file"
         accept="image/*"
@@ -48,7 +58,7 @@ const CustomFileInput = ({ name, control }) => {
         ref={ref}
         multiple
       />
-      {error && <span style={{ color: "red" }}>{error.message}</span>}
+      <ErrorMessage error={error} />
     </div>
   );
 };

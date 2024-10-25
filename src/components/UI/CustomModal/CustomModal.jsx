@@ -5,8 +5,15 @@ Modal.setAppElement("#root");
 
 const CustomModal = ({ isOpen, onRequestClose, children }) => {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
-      <button onClick={onRequestClose}>X</button>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className={styles.modalContent}
+      overlayClassName={styles.modalOverlay}
+    >
+      <button className={styles.closeButton} onClick={onRequestClose}>
+        X
+      </button>
       <div className={styles.content}>{children}</div>
     </Modal>
   );

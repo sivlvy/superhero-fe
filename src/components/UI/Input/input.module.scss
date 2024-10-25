@@ -1,0 +1,61 @@
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0;
+
+  input[type="file"] {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff; // Зміна кольору при фокусі
+    }
+
+    &:hover {
+      border-color: #007bff; // Зміна кольору при наведенні
+    }
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 0.875rem; // Розмір шрифту для повідомлення про помилку
+  }
+}
+
+
+.inputContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  input {
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff; // Зміна кольору при фокусі
+    }
+
+    &:hover {
+      border-color: #007bff; // Зміна кольору при наведенні
+    }
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 0.875rem; // Розмір шрифту для повідомлення про помилку
+    margin-top: 5px; // Відступ для покращення відображення
+  }
+}

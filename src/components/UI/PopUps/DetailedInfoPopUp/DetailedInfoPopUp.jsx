@@ -12,25 +12,29 @@ const DetailedInfoPopUp = ({ item }) => {
   } = item;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-      className={styles.wrapper}
-    >
+    <div className={styles.wrapper}>
       <div className={styles.imagesWrapper}>
         {images.map((image) => (
-          <img src={image} key={image} alt="" />
+          <img className={styles.images} src={image} key={image} alt="" />
         ))}
       </div>
       <div className={styles.infoWrapper}>
-        <p>Nickname: {nickname}</p>
-        <p>Real name: {real_name}</p>
-        <p>Description: {origin_description}</p>
-        <p>Superpowers: {superpowers}</p>
-        <p>Phrases: {catch_phrase}</p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Nickname</span>: {nickname}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Real name</span>: {real_name}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Description</span>:{" "}
+          {origin_description}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Superpowers</span>: {superpowers}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Phrases</span>: {catch_phrase}
+        </p>
       </div>
     </div>
   );

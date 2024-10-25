@@ -1,7 +1,7 @@
 import { HeroesList } from "../components/HeroesList/HeroesList";
 import { Button } from "../components/UI/Button/Button";
 import { useState } from "react";
-import { ChangeHeroPopUp } from "../components/UI/PopUps/ChangeHeroPopUp/ChangeHeroPopUp";
+import { CreateHeroPopUp } from "../components/UI/PopUps/CreateHeroPopUp/CreateHeroPopUp";
 import { CustomModal } from "../components/UI/CustomModal/CustomModal";
 
 const MainPage = () => {
@@ -19,7 +19,7 @@ const MainPage = () => {
     <>
       <Button text="Create hero" handleClick={handleOpenModal} />
       <CustomModal onRequestClose={handleCloseModal} isOpen={isModalOpen}>
-        <ChangeHeroPopUp />
+        <CreateHeroPopUp />
       </CustomModal>
       <HeroesList />
     </>

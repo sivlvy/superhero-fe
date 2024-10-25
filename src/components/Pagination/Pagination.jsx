@@ -1,15 +1,24 @@
 import styles from "./pagination.styles.module.scss";
 
 const Pagination = ({ currentPage, totalPages, onNext, onPrev }) => {
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === totalPages;
+
+  const renderButton = (label, onClick, disabled) => {
+    return (
+      <button className={styles.button} onClick={onClick} disabled={disabled}>
+        {label}
+      </button>
+    );
+  };
+
   return (
     <div className={styles.pagination}>
-      <button onClick={onPrev} disabled={currentPage === 1}>
-        Prev
-      </button>
+      {renderButton("Попередня", onPrev, isFirstPage)}
       <span>
-        Page {currentPage} of {totalPages}
+        Сторінка {currentPage} з {totalPages}
       </span>
-      <button onClick={onNext}>Next</button>
+      {renderButton("Наступна", onNext, isLastPage)}
     </div>
   );
 };

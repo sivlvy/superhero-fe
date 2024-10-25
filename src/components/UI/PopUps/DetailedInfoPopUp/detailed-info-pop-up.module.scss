@@ -1,11 +1,16 @@
 .wrapper {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .imagesWrapper {
-
+  display: flex;
+  gap: 20px;
 }
 
 .infoWrapper {
 
+}
+.images {
+  width: 200px;
 }

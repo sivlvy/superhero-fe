@@ -19,7 +19,7 @@ const transformValuesToFormData = (values) => {
   return formData;
 };
 
-const ChangeHeroPopUp = () => {
+const CreateHeroPopUp = () => {
   const { handleSubmit, control } = useForm();
 
   const onSubmit = async (values) => {
@@ -71,4 +71,4 @@ const ChangeHeroPopUp = () => {
   );
 };
 
-export { ChangeHeroPopUp };
+export { CreateHeroPopUp };
