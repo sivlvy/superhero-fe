@@ -29,7 +29,7 @@ const CustomInput = ({ name, control, ...props }) => {
         {...props}
         onChange={onChange}
         onBlur={onBlur}
-        value={value}
+        value={value || ""}
         ref={ref}
       />
       <ErrorMessage error={error} />
@@ -45,7 +45,7 @@ const CustomFileInput = ({ name, control }) => {
 
   const handleChange = (event) => {
     const files = Array.from(event.target.files);
-    onChange(files);
+    onChange(files); // Передаємо масив файлів
   };
 
   return (

@@ -63,25 +63,33 @@ const HeroesList = () => {
 
   return (
     <div className={styles.wrapper}>
-      {isLoading ? (
-        <Loader />
+      {data.length > 0 ? (
+        <>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <ul className={styles.list}>
+                {currentHeroes.map((hero) => (
+                  <HeroesItemList
+                    item={hero}
+                    key={hero.id}
+                    handleDelete={handleDelete}
+                  />
+                ))}
+              </ul>
+              <Pagination
+                currentPage={page}
+                totalPages={totalPages}
+                onNext={nextPage}
+                onPrev={prevPage}
+              />
+            </>
+          )}
+        </>
       ) : (
-        <ul className={styles.list}>
-          {currentHeroes.map((hero) => (
-            <HeroesItemList
-              item={hero}
-              key={hero.id}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </ul>
+        <p>None</p>
       )}
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onNext={nextPage}
-        onPrev={prevPage}
-      />
       {error && <p>Помилка: {error}</p>}
     </div>
   );

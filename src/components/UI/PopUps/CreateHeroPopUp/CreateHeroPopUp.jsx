@@ -4,18 +4,23 @@ import { createHero } from "../../../../api/superheroes.api";
 
 const transformValuesToFormData = (values) => {
   const formData = new FormData();
+
   Object.keys(values).forEach((key) => {
     if (Array.isArray(values[key])) {
       values[key].forEach((value) => formData.append(key, value));
-    } else {
+    } else if (values[key] !== undefined && values[key] !== null) {
       formData.append(key, values[key]);
     }
   });
-  if (values.images) {
+
+  if (values.images && Array.isArray(values.images)) {
     values.images.forEach((file) => {
-      formData.append("images", file);
+      if (file instanceof File) {
+        formData.append("images", file);
+      }
     });
   }
+
   return formData;
 };
 
