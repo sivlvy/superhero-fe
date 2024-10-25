@@ -1,0 +1,19 @@
+.button {
+  padding: 10px 35px;
+  background-color: black;
+  border-radius: 10px;
+  border: 1px solid white;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  display: block;
+
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
